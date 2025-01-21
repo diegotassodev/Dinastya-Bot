@@ -1,0 +1,70 @@
+[
+  {
+    "user": "1142465744009965658",
+    "staff": "376896777124577291",
+    "tipo": "Banimento",
+    "motivo": "Mostrando Pornografia em call",
+    "tempo": "27d",
+    "dataDeTermino": "2025-02-03T01:00:00.030Z",
+    "provas": [],
+    "data": "2025-01-05T16:52:41.031Z"
+  },
+  {
+    "user": "1195392549540606146",
+    "staff": "376896777124577291",
+    "tipo": "Banimento",
+    "motivo": "Menor de 13 Anos - Refazendo a punição",
+    "tempo": "3y",
+    "dataDeTermino": "2027-01-06T14:37:47.337Z",
+    "provas": [],
+    "data": "2025-01-05T20:37:47.337Z"
+  },
+  {
+    "user": "814136944966500393",
+    "staff": "720343277554892900",
+    "tipo": "Banimento",
+    "motivo": "Nsfw",
+    "tempo": "30d",
+    "dataDeTermino": "2025-02-10T17:36:36.228Z",
+    "provas": [
+      "https://cdn.discordapp.com/ephemeral-attachments/1321976690938744832/1327692617198075925/VID-20250106-WA0019.mp4?ex=6783fd9b&is=6782ac1b&hm=8fb1b274f2d9d0fc155b85007657d1ca3b84632f5b19c094e9c97f1a75324ec5&"
+    ],
+    "data": "2025-01-11T17:36:36.228Z"
+  },
+  {
+    "user": "1056956164983754782",
+    "staff": "723869899985911818",
+    "tipo": "Castigo",
+    "motivo": "nsfw",
+    "tempo": "7d",
+    "dataDeTermino": "2025-01-26T04:22:25.790Z",
+    "provas": [
+      "https://cdn.discordapp.com/ephemeral-attachments/1321976690938744832/1330391860887158844/image.png?ex=678dcf79&is=678c7df9&hm=ce2c5215dfd20bf0413d32884b8790c9189938d13eaf86bd55db5142fe010864&"
+    ],
+    "data": "2025-01-19T04:22:25.790Z"
+  },
+  {
+    "user": "1056956164983754782",
+    "staff": "723869899985911818",
+    "tipo": "Castigo",
+    "motivo": "nsfw",
+    "tempo": "7d",
+    "dataDeTermino": "2025-01-26T04:23:00.393Z",
+    "provas": [
+      "https://cdn.discordapp.com/ephemeral-attachments/1321976690938744832/1330391860887158844/image.png?ex=678dcf79&is=678c7df9&hm=ce2c5215dfd20bf0413d32884b8790c9189938d13eaf86bd55db5142fe010864&"
+    ],
+    "data": "2025-01-19T04:23:00.393Z"
+  },
+  {
+    "user": "1093727054270300190",
+    "staff": "723869899985911818",
+    "tipo": "Castigo",
+    "motivo": "nsfw",
+    "tempo": "7d",
+    "dataDeTermino": "2025-01-26T04:23:00.783Z",
+    "provas": [
+      "https://cdn.discordapp.com/ephemeral-attachments/1321976690938744832/1330391997806018742/image.png?ex=678dcf99&is=678c7e19&hm=ade3af56abceba06ffd80e57f7bcb2fd848361a834d00c62ed50f3f17ccd0f49&"
+    ],
+    "data": "2025-01-19T04:23:00.783Z"
+  }
+]

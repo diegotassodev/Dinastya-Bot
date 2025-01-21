@@ -1,0 +1,80 @@
+{
+  "539067625649602560": {
+    "missoes": [
+      {
+        "titulo": "Treinamento dos membros Dinastya+",
+        "descricao": "Concluir o treinamento e alcançar um bom resultado",
+        "recompensa": "25 Pontos",
+        "data": "2024-12-14T02:30:00.735Z"
+      }
+    ]
+  },
+  "1056956164983754782": {
+    "missoes": [
+      {
+        "titulo": "Treinamento dos membros Dinastya+",
+        "descricao": "Concluir o treinamento e alcançar um bom resultado",
+        "recompensa": "25 Pontos",
+        "data": "2024-12-14T02:30:00.735Z"
+      },
+      {
+        "titulo": "Primeiro Jogador a alcançar o Grau Bronze",
+        "descricao": "Se tornou o primeiro membro a alcançar o <@&1312827608857186384>",
+        "recompensa": "10 Pontos Permanentes + Textura Personalizada",
+        "data": "2024-12-15T23:55:01.211Z"
+      }
+    ]
+  },
+  "508245324142215169": {
+    "missoes": [
+      {
+        "titulo": "Treinamento dos membros Dinastya+",
+        "descricao": "Concluir o treinamento e alcançar um bom resultado",
+        "recompensa": "10 Pontos",
+        "data": "2024-12-14T02:30:00.735Z"
+      },
+      {
+        "titulo": "Pegar Pristine",
+        "descricao": "Conseguir Pristine até o dia 18 de Dezembro.",
+        "recompensa": "30 Pontos Permanentes",
+        "data": "2024-12-20T22:09:27.771Z"
+      },
+      {
+        "titulo": "Vencer o evento de Block Sumo",
+        "descricao": "O vencedor do evento de block sumo, conquista essa missão.",
+        "recompensa": "Tag Block Sumo Winner",
+        "data": "2024-12-29T20:24:17.425Z"
+      }
+    ]
+  },
+  "960715758718046208": {
+    "missoes": [
+      {
+        "titulo": "Treinamento dos membros Dinastya+",
+        "descricao": "Concluir o treinamento e alcançar um bom resultado",
+        "recompensa": "10 Pontos",
+        "data": "2024-12-14T02:30:00.735Z"
+      }
+    ]
+  },
+  "762535709071900703": {
+    "missoes": [
+      {
+        "titulo": "Conseguir Divisão 3",
+        "descricao": "Conquistar Divisão 3 no TBBR até o fim do ano",
+        "recompensa": "10 Pontos Permanentes",
+        "data": "2025-01-01T00:30:21.794Z"
+      }
+    ]
+  },
+  "756528889597001849": {
+    "missoes": [
+      {
+        "titulo": "Conseguir Top 50 no HG Simulator",
+        "descricao": "Entrar na Leaderboard de Nível em uma posição acima de 50 no Duels de HG Simulator",
+        "recompensa": "10 Pontos Permanentes",
+        "data": "2025-01-15T00:30:21.794Z"
+      }
+    ]
+  }
+}

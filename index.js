@@ -1,7 +1,11 @@
-const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
+// Instanciando as necessidades iniciais do código.
+const { Client, Events, GatewayIntentBits, Collection, EmbedBuilder } = require('discord.js');
 const dotenv = require('dotenv');
 const fs = require('fs');
 const path = require('path');
+const { atualizarveteranos } = require('./funcoes/atualizarveteranos');
+const handleVoiceStateUpdate = require('./funcoes/bwtreino');
+const handleTorneioVoiceUpdate = require('./funcoes/torneio.js');
 
 // Carregar variáveis do .env
 dotenv.config();
@@ -15,7 +19,15 @@ const commandsPath = path.join(__dirname, 'comandos');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
 // Criar cliente do Discord
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildVoiceStates,
+  ],
+});
+
+// Criando uma nova coleção de comandos baseado nos presentes na pasta de comandos.
 client.commands = new Collection();
 
 // Importar comandos
@@ -25,7 +37,8 @@ for (const file of commandFiles) {
 
   if ('data' in command && 'execute' in command) {
     client.commands.set(command.data.name, command);
-  } else {
+  }
+  else {
     console.log(`Esse comando em ${filePath} está com "data" ou "execute" ausentes.`);
   }
 }
@@ -42,17 +55,23 @@ const ROLES = {
 
 // Função para verificar e atualizar os cargos
 async function verificarEAtualizarCargos() {
+
+  // Criando variável dos pontos
   let pontos = {};
+
+  // Leitura do arquivo de pontos
   if (fs.existsSync(pontosPath)) {
     try {
       const data = fs.readFileSync(pontosPath, 'utf8');
       pontos = JSON.parse(data);
-    } catch (error) {
+    } 
+    catch (error) {
       console.error('Erro ao ler o arquivo de pontos:', error);
       return;
     }
   }
 
+  // Aviso de Erro no caso do servidor não ser encontrado.
   const guild = await client.guilds.fetch(GUILD_ID);
   if (!guild) {
     console.error('Guilda não encontrada!');
@@ -72,7 +91,8 @@ async function verificarEAtualizarCargos() {
             await membro.roles.add(roleId);
             console.log(`Adicionado: ${roleId} para ${membro.user.username}`);
           }
-        } else {
+        } 
+        else {
           if (membro.roles.cache.has(roleId)) {
             await membro.roles.remove(roleId);
             console.log(`Removido: ${roleId} de ${membro.user.username}`);
@@ -82,12 +102,13 @@ async function verificarEAtualizarCargos() {
 
       // Lógica para cada cargo
       await gerenciarCargo(quantidadePontos <= 99, ROLES.Dinastya);
-      await gerenciarCargo(quantidadePontos > 100, ROLES.DinastyaPlus);
+      await gerenciarCargo(quantidadePontos >= 100, ROLES.DinastyaPlus);
       await gerenciarCargo(quantidadePontos >= 500 && quantidadePontos <= 999, ROLES.Bronze);
       await gerenciarCargo(quantidadePontos >= 1000 && quantidadePontos <= 4999, ROLES.Prata);
       await gerenciarCargo(quantidadePontos >= 5000 && quantidadePontos <= 9999, ROLES.Ouro);
       await gerenciarCargo(quantidadePontos >= 10000, ROLES.Platina);
-    } catch (error) {
+    } 
+    catch (error) {
       console.error(`Erro ao gerenciar cargos para o usuário ${usuarioId}:`, error);
     }
   }
@@ -99,8 +120,16 @@ client.once(Events.ClientReady, async readyClient => {
   
   // Verificar cargos ao iniciar
   await verificarEAtualizarCargos();
-
   setInterval(verificarEAtualizarCargos, 60 * 50);
+
+  setInterval(async () => {
+    try {
+      await atualizarveteranos(client, GUILD_ID);
+    } 
+    catch (error) {
+      console.error('Erro ao atualizar o top 3:', error);
+    }
+  }, 60000000); // Executa a cada 10 Minutos
 });
 
 // Lidando com comandos
@@ -116,7 +145,8 @@ client.on(Events.InteractionCreate, async interaction => {
 
   try {
     await command.execute(interaction);
-  } catch (error) {
+  }
+  catch (error) {
     console.error('Erro ao executar comando:', error);
     await interaction.reply({
       content: 'Houve um erro ao executar esse comando.',
@@ -125,5 +155,84 @@ client.on(Events.InteractionCreate, async interaction => {
   }
 });
 
+// Configurar para enviar mensagem às 10:00
+const cron = require('node-cron');
+
+cron.schedule('09 11 * * *', async () => {
+  try {
+
+    // Buscando o canal para envio de mensagem
+    const guild = await client.guilds.fetch(GUILD_ID);
+    const channelId = '1312845151059836989';
+    const channel = guild.channels.cache.get(channelId);
+
+    // Buscando o arquivo de treino para verificação.
+    const treinoPath = path.join(__dirname, './dados/treinos.json');
+    let treinos = {};
+
+    // Verificar se o arquivo `treinos.json` existe e carregar os treinos
+    if (fs.existsSync(treinoPath)) {
+      treinos = JSON.parse(fs.readFileSync(treinoPath));
+    }
+
+    // Caso nenhum usuário possua treino, retorna.
+    const userIds = Object.keys(treinos);
+    if (userIds.length === 0) {
+      console.log('Nenhum treino encontrado para usuários.');
+      return;
+    }
+
+    // Mencionar usuários no canal
+    const mentions = userIds.map(id => `<@${id}>`).join(' ');
+    if (channel) {
+      await channel.send(`${mentions}\nEnviei no privado de vocês a sua prática diária. Usem /concluirtreino quando finalizarem e /vertreino para ver a prática.`);
+    } 
+    else {
+      console.error('Canal não encontrado.');
+      return;
+    }
+
+    // Enviar mensagem privada para cada usuário com treino
+    for (const userId of userIds) {
+      const treino = treinos[userId];
+      if (treino) {
+        const treinoEmbed = new EmbedBuilder()
+          .setColor(0x0099ff)
+          .setTitle('Prática Diária')
+          .setDescription(treino.descricao)
+          .addFields({ name: 'Pontos de Honra para Conclusão', value: `**${treino.pontos}**` })
+          .setTimestamp();
+
+        try {
+          const member = await guild.members.fetch(userId);
+          if (member) {
+            await member.send({ embeds: [treinoEmbed] });
+          }
+        }
+        catch (error) {
+          console.error(`Erro ao enviar mensagem privada para o usuário ${userId}:`, error);
+        }
+      }
+    }
+  }
+
+  // Catch no caso de erro de envio de mensagem. 
+  catch (error) {
+      console.error('Erro ao enviar mensagens programadas:', error);
+  }
+});
+
+// Bedwars xTreino
+client.on(Events.VoiceStateUpdate, async (oldState, newState) => {
+  await handleVoiceStateUpdate(oldState, newState, client, GUILD_ID);
+});
+
+// Torneio de Bridge
+client.on('voiceStateUpdate', async (oldState, newState) => {
+    await handleTorneioVoiceUpdate(oldState, newState, client, GUILD_ID);
+});
+
 // Login do bot
 client.login(TOKEN);
+
+

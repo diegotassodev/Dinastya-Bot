@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 
-const pontosPath = path.join(__dirname, '../pontos.json');
+const pontosPath = path.join(__dirname, '../dados/pontos.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,15 +11,16 @@ module.exports = {
         .addUserOption(option => option.setName('usuario').setDescription('O usuário a quem remover pontos').setRequired(true))
         .addIntegerOption(option => option.setName('quantidade').setDescription('Quantidade de pontos a remover').setRequired(true)),
     async execute(interaction) {
-        // Verifica se o usuário tem permissão de administrador
         if (!interaction.member.roles.cache.has('1310275274470064198')) {
-            return await interaction.reply('Você não tem permissão para usar esse comando.');
+            return await interaction.reply({ content: 'Você não tem permissão para usar esse comando.', ephemeral: true });
         }
 
+        // Variáveis do sistema
         const usuario = interaction.options.getUser('usuario');
         const quantidade = interaction.options.getInteger('quantidade');
+        const logChannelId = '1321089978574573598'; // ID do canal de logs
 
-        // Lê os pontos existentes
+        // Tentativa de Leitura do .json de pontos para Remoção
         let pontos = {};
         if (fs.existsSync(pontosPath)) {
             try {
@@ -27,31 +28,42 @@ module.exports = {
                 pontos = JSON.parse(data);
             } catch (error) {
                 console.error('Erro ao ler o arquivo de pontos:', error);
-                return await interaction.reply('Houve um erro ao ler os pontos. Tente novamente mais tarde.');
+                return await interaction.reply({ content: 'Houve um erro ao ler os pontos. Tente novamente mais tarde.', ephemeral: true });
             }
         }
 
-        // Verifica se o usuário tem pontos suficientes para remover
         if (!pontos[usuario.id] || pontos[usuario.id] < quantidade) {
-            return await interaction.reply(`${usuario.username} não possui pontos suficientes para essa operação.`);
+            return await interaction.reply({ content: `${usuario.username} não possui pontos suficientes para essa operação.`, ephemeral: true });
         }
 
-        // Remove os pontos
         pontos[usuario.id] -= quantidade;
 
-        // Se a quantidade de pontos do usuário for zero ou negativa, remove o usuário do arquivo
         if (pontos[usuario.id] <= 0) {
             delete pontos[usuario.id];
         }
 
-        // Salva os pontos de volta no arquivo
+        // Tentativa de Escrita dos pontos no .Json de Pontos
         try {
             fs.writeFileSync(pontosPath, JSON.stringify(pontos, null, 2));
         } catch (error) {
             console.error('Erro ao escrever no arquivo de pontos:', error);
-            return await interaction.reply('Houve um erro ao salvar os pontos. Tente novamente mais tarde.');
+            return await interaction.reply({ content: 'Houve um erro ao salvar os pontos. Tente novamente mais tarde.', ephemeral: true });
         }
 
-        await interaction.reply(`Foram removidos ${quantidade} **Pontos de Honra** do ${usuario.username}.`);
+        // Envio da mensagem no canal de Logs
+        const logChannel = interaction.client.channels.cache.get(logChannelId);
+        if (logChannel) {
+            logChannel.send(`Foram removidos ${quantidade} **Pontos de Honra** de ${usuario.toString()} por ${interaction.user.toString()}.`);
+        }
+
+        // Enviar mensagem privada ao usuário
+        try {
+            await usuario.send(`Você perdeu ${quantidade} **Pontos de Honra**.`);
+        } catch (error) {
+            console.error('Erro ao enviar mensagem privada:', error);
+        }
+
+        // Responder ao comando
+        await interaction.reply({ content: `Foram removidos ${quantidade} **Pontos de Honra** de ${usuario.username}.`, ephemeral: true });
     },
 };

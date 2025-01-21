@@ -1,0 +1,64 @@
+{
+  "539067625649602560": [
+    {
+      "id": 1,
+      "titulo": "Pegar Pristine",
+      "descricao": "Conseguir o Rank Pristine no scrims",
+      "recompensa": "15 Pontos (Permanentes)"
+    }
+  ],
+  "508245324142215169": [
+    {
+      "id": 1,
+      "titulo": "Pegar Divisão 2",
+      "descricao": "Conseguir Divisão 2 no TBBR",
+      "recompensa": "10 Pontos Permanentes"
+    },
+    {
+      "id": 2,
+      "titulo": "Ganhar MD5 da Escoteira",
+      "descricao": "Se desprender das amarras e alcançar um próximo nível ganhando de uma jogadora de alto nível.",
+      "recompensa": "15 Pontos Permanentes + Chave para o <@&1312827605384429690>"
+    }
+  ],
+  "1056956164983754782": [
+    {
+      "id": 1,
+      "titulo": "Pegar Pristine",
+      "descricao": "Conseguir o Rank Pristine no scrims",
+      "recompensa": "15 Pontos (Permanentes)"
+    },
+    {
+      "id": 2,
+      "titulo": "Pegar Divisão 2",
+      "descricao": "Conseguir Divisão 2 no TBBR",
+      "recompensa": "15 Pontos Permanentes + Chave para o <@&1312827605384429690>"
+    }
+  ],
+  "960715758718046208": [],
+  "801659295179472947": [
+    {
+      "id": 1,
+      "titulo": "Obsidian na aRanked",
+      "descricao": "Conseguir 1100 de Elo na Ranked",
+      "recompensa": "25 Pontos Permanentes"
+    }
+  ],
+  "376896777124577291": [],
+  "805555324819472414": [
+    {
+      "id": 1,
+      "titulo": "Pegar Pristine",
+      "descricao": "Conseguir o Rank Pristine no scrims",
+      "recompensa": "15 Pontos (Permanentes)"
+    }
+  ],
+  "762535709071900703": [
+    {
+      "id": 2,
+      "titulo": "Normal GodBridger",
+      "descricao": "Conseguir fazer God Bridge de Normal Click até Fevereiro",
+      "recompensa": "35 Pontos (Permanentes)"
+    }
+  ]
+}
