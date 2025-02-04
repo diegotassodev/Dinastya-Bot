@@ -6,13 +6,14 @@ const path = require('path');
 const { atualizarveteranos } = require('./funcoes/atualizarveteranos');
 const handleVoiceStateUpdate = require('./funcoes/bwtreino');
 const handleTorneioVoiceUpdate = require('./funcoes/torneio.js');
+const pontosPath = path.join(__dirname, './dados/pontos.json');
+const treinoPath = path.join(__dirname, './dados/treinos.json');
+const leaderboardChannelId = '1336319720324071507'; 
+const messageDataPath = path.join(__dirname, './dados/idmensagens.json'); 
 
 // Carregar variáveis do .env
 dotenv.config();
 const { TOKEN, CLIENT_ID, GUILD_ID } = process.env;
-
-// Caminho do arquivo de pontos
-const pontosPath = path.join(__dirname, 'pontos.json');
 
 // Garantir que comandos JS são importados
 const commandsPath = path.join(__dirname, 'comandos');
@@ -155,19 +156,16 @@ client.on(Events.InteractionCreate, async interaction => {
   }
 });
 
-// Configurar para enviar mensagem às 10:00
+// Mensagens enviada as 10 horas da manhã sobre o treinamento dos jogadores.
 const cron = require('node-cron');
-
-cron.schedule('09 11 * * *', async () => {
+cron.schedule('00 10 * * *', async () => {
   try {
 
     // Buscando o canal para envio de mensagem
     const guild = await client.guilds.fetch(GUILD_ID);
     const channelId = '1312845151059836989';
     const channel = guild.channels.cache.get(channelId);
-
-    // Buscando o arquivo de treino para verificação.
-    const treinoPath = path.join(__dirname, './dados/treinos.json');
+    
     let treinos = {};
 
     // Verificar se o arquivo `treinos.json` existe e carregar os treinos
@@ -219,6 +217,73 @@ cron.schedule('09 11 * * *', async () => {
   // Catch no caso de erro de envio de mensagem. 
   catch (error) {
       console.error('Erro ao enviar mensagens programadas:', error);
+  }
+});
+
+cron.schedule('50 10 * * *', async () => {
+  try {
+    const guild = await client.guilds.fetch(GUILD_ID);
+    const channel = guild.channels.cache.get(leaderboardChannelId);
+
+    if (!channel) {
+      console.error('Canal de placar não encontrado.');
+      return;
+    }
+
+    // Verifica se há um ID de mensagem salvo e tenta apagá-lo
+    let messageData = {};
+    if (fs.existsSync(messageDataPath)) {
+      try {
+        messageData = JSON.parse(fs.readFileSync(messageDataPath, 'utf8'));
+      } catch (error) {
+        console.error('Erro ao ler o arquivo de última mensagem:', error);
+      }
+    }
+
+    // Deleta a mensagem anterior, se existir, com base no comando
+    const commands = ['placar', 'placartreino', 'placarxp'];
+    for (const commandType of commands) {
+      const lastMessageId = messageData[commandType];
+      if (lastMessageId) {
+        try {
+          const lastMessage = await channel.messages.fetch(lastMessageId);
+          if (lastMessage) {
+            await lastMessage.delete();
+            console.log(`Mensagem anterior do comando ${commandType} apagada.`);
+          }
+        } catch (error) {
+          console.log(`Não foi possível apagar a mensagem anterior do comando ${commandType} (talvez já tenha sido deletada).`);
+        }
+      }
+    }
+
+    // Processa e envia as mensagens para cada comando
+    for (const commandType of commands) {
+      const command = client.commands.get(commandType);
+      if (!command) {
+        console.error(`Comando /${commandType} não encontrado.`);
+        continue;
+      }
+
+      // Cria um objeto de interação fake para executar o comando no canal
+      const fakeInteraction = {
+        client,
+        guild,
+        channel,
+        user: client.user,
+        reply: async ({ embeds }) => {
+          const sentMessage = await channel.send({ embeds });
+          // Salva o ID da nova mensagem no arquivo JSON com base no comando
+          messageData[commandType] = sentMessage.id;
+          fs.writeFileSync(messageDataPath, JSON.stringify(messageData));
+        },
+      };
+
+      await command.execute(fakeInteraction);
+      console.log(`Nova mensagem do comando ${commandType} enviada.`);
+    }
+  } catch (error) {
+    console.error('Erro ao enviar os placares diários:', error);
   }
 });
 

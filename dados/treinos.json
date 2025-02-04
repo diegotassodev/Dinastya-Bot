@@ -1,24 +1,12 @@
 {
   "376896777124577291": {
-    "descricao": "・20 Minutos na FPS\n・10 Minutos de Vídeos de 1v1 Sopa\n・5 Partidas de aRanked\n・5 Minutos de Block-in\n・5 Minutos de Block Placement\n・1 Hora Trabalhando no Canal do Youtube",
+    "descricao": "・1 Hora Trabalhando no Canal do Youtube\n・10 Minutos Procurando Trabalho",
     "pontos": 20,
     "criadoPor": "oriyon",
     "data": "2025-01-06T20:10:43.625Z"
   },
-  "1056956164983754782": {
-    "descricao": "・1 Estudo de Uncut\n・1 Hora de 1v1 com o <@820464537244270622>",
-    "pontos": 0,
-    "criadoPor": "oriyon",
-    "data": "2025-01-06T20:15:25.502Z"
-  },
-  "508245324142215169": {
-    "descricao": "・2 Séries de Hippo em Todos os Mapas\n・15 Minutos de Vídeos de The Bridge\n・20 Minutos Jogando BedFight\n・1 Hora e 10 minutos Jogando The Bridge TryHard",
-    "pontos": 40,
-    "criadoPor": "oriyon",
-    "data": "2025-01-06T20:15:25.502Z"
-  },
   "539067625649602560": {
-    "descricao": "・2 Séries do mapa de Wall Block Clutch\n・3 Séries de Hippo em Todos os Mapas\n・2 Séries do mapa de Speed Clutch\n・2 Séries do mapa de Side Clutch\n・1 Série do mapa de Broken Wall Run\n・5 Partidas de BedFight\n・5 Partidas de Sumo\n・30 Minutos Jogando The Bridge\n・15 Minutos de Treino de Block Placements\n・10 Minutos de Block-In\n・10 Minutos Vendo Vídeos de The Bridge",
+    "descricao": "・10 Minutos de Montage de Block Placement\n・15 Minutos de Estudo e treino de block placements\n・10 Minutos de BedFight\n・10 Minutos de Block-in\n・5 Partidas de aRanked",
     "pontos": 40,
     "criadoPor": "oriyon",
     "data": "2025-01-06T20:15:25.502Z"
@@ -26,12 +14,6 @@
   "762535709071900703": {
     "descricao": "・5 Séries do mapa de Wall Block Clutch\n・5 Séries do mapa de Speed Clutch\n・5 Séries do mapa de Side Clutch\n・3 Séries de Hippo em Todos os Mapas\n・5 Minutos Jogando BedFight (Minemen Na)\n・45 Minutos jogando The Bridge",
     "pontos": 50,
-    "criadoPor": "oriyon",
-    "data": "2025-01-06T20:15:25.502Z"
-  },
-  "820464537244270622": {
-    "descricao": "・10 Minutos de Treino de Precisão e Velocidade no Reecraft\n・10 Minutos de Treino de Refil\n・5 Minutos de Lava Challenge\n・5 Minutos indo PVP na FPS\n・10 Minutos Vendo Vídeos de Gladiator\n・10 Minutos de Treino de Trap\n・30 Minutos de Gladiator",
-    "pontos": 45,
     "criadoPor": "oriyon",
     "data": "2025-01-06T20:15:25.502Z"
   },
@@ -53,12 +35,6 @@
     "criadoPor": "oriyon",
     "data": "2025-01-06T20:15:25.502Z"
   },
-  "920269554238775316": {
-    "descricao": "・10 Minutos Assistindo Vídeos de Bedfight\n・5 Minutos de Treino de Block Placement\n・5 Minutos de Treino de Block-in\n・10 Minutos Jogando BedFight tentando aplicar o que aprendeu\n・10 Minutos Assistindo Vídeos de Bedfight\n・10 Minutos Jogando TheBridge tentando aplicar o que aprendeu",
-    "pontos": 45,
-    "criadoPor": "oriyon",
-    "data": "2025-01-08T11:03:44.643Z"
-  },
   "1324544909767741513": {
     "descricao": "・10 Minutos de Treino de Tracking \n・2 Séries do mapa de Speed Clutch \n・2 Séries do mapa de Side Clutch \n・4 Séries de Hippo em Todos os Mapas \n・10 Minutos de Block Placements \n・10 Minutos de Block-in \n・25 Minutos de Bridge Tryhard",
     "pontos": 50,
@@ -66,8 +42,8 @@
     "data": "2025-01-08T13:42:07.910Z"
   },
   "829367896530092123": {
-    "descricao": "・10 Minutos de Vídeos de Sopa\n・30 Minutos jogando 1v1 Sopa\n・30 Minutos Jogando na FPS\n・10 Minutos de Treino de Precisão e Velocidade no Reecraft\n・10 Minutos de Treino de Refil\n・5 Minutos de Challenge Extremo",
-    "pontos": 50,
+    "descricao": "・1 Hora e 30 Minutos jogando 1v1 Sopa\n・20 Tankando o Damage no Difícil",
+    "pontos": 40,
     "criadoPor": "oriyon",
     "data": "2025-01-08T13:42:07.910Z"
   },
@@ -76,5 +52,35 @@
     "pontos": 45,
     "criadoPor": "oriyon",
     "data": "2025-01-18T15:48:09.072Z"
+  },
+  "820464537244270622": {
+    "descricao": "・30 Minutos Jogando The Bridge Tryhard\n・30 Minutos Grindando no Mush",
+    "pontos": 40,
+    "criadoPor": "oriyon",
+    "data": "2025-01-20T14:59:35.720Z"
+  },
+  "508245324142215169": {
+    "descricao": "・30 Minutos Grindando no Mush sem fone",
+    "pontos": 20,
+    "criadoPor": "oriyon",
+    "data": "2025-01-24T21:01:30.855Z"
+  },
+  "1056956164983754782": {
+    "descricao": "・30 Minutos Grindando no Mush sem fone",
+    "pontos": 20,
+    "criadoPor": "oriyon",
+    "data": "2025-01-24T21:01:48.600Z"
+  },
+  "674619740295135246": {
+    "descricao": "・3 Séries do mapa de Wall Block Clutch\n・3 Séries de Hippo em todos os mapas\n・3 Séries do mapa de Speed Clutch\n・3 Séries do mapa de Side Clutch\n・10 Minutos Jogando Bedfight no MMC\n・20 Minutos Jogando The Bridge Tryhard\n・10 Minutos Assistindo uncuts de The Bridge",
+    "pontos": 45,
+    "criadoPor": "oriyon",
+    "data": "2025-01-24T21:05:48.875Z"
+  },
+  "723869899985911818": {
+    "descricao": "・30 Minutos de 1v1 com o 1ipe\n・30 Minutos Jogando na Prime Queue\n・30 Minutos Grindando no mush",
+    "pontos": 50,
+    "criadoPor": "oriyon",
+    "data": "2025-01-30T16:33:51.864Z"
   }
 }

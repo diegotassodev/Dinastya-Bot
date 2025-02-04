@@ -60,5 +60,21 @@
       "descricao": "Conseguir fazer God Bridge de Normal Click até Fevereiro",
       "recompensa": "35 Pontos (Permanentes)"
     }
+  ],
+  "1324544909767741513": [
+    {
+      "id": 1,
+      "titulo": "Pegar Divisão 1",
+      "descricao": "Conseguir os vouchs e pegar divisão 1",
+      "recompensa": "35 Pontos Permanentes + Chave para o <@&1312827605384429690>"
+    }
+  ],
+  "829367896530092123": [
+    {
+      "id": 1,
+      "titulo": "Pegar General na Sopa",
+      "descricao": "Conseguir o rank General na 1v1, se consolidando como um dos top tiers do modo.",
+      "recompensa": "20 Pontos Permanentes + Chave para o <@&1312827605384429690>"
+    }
   ]
 }

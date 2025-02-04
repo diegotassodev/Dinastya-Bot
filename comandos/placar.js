@@ -40,7 +40,7 @@ module.exports = {
         // Criação do embed
         const embed = new EmbedBuilder()
             .setColor('#F5723A') // Cor dourada
-            .setTitle('Jogadores mais Honrados da Dinastya')
+            .setTitle(' Jogadores mais Honrados da Dinastya')
             .setFooter({ text: '© Dinastya' })
             .setTimestamp();
 
