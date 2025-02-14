@@ -5,6 +5,12 @@
       "titulo": "Pegar Pristine",
       "descricao": "Conseguir o Rank Pristine no scrims",
       "recompensa": "15 Pontos (Permanentes)"
+    },
+    {
+      "id": 2,
+      "titulo": "Conseguir 1000 de Elo na Ranked (Season sem Party)",
+      "descricao": "Se consagrar como jogador de Bedwars ranqueado de alto nível conseguindo 1000 de Elo em uma season que só depende dele.",
+      "recompensa": "15 Pontos Permanentes +  Chave para o <@&1312827605384429690>"
     }
   ],
   "508245324142215169": [
@@ -42,6 +48,12 @@
       "titulo": "Obsidian na aRanked",
       "descricao": "Conseguir 1100 de Elo na Ranked",
       "recompensa": "25 Pontos Permanentes"
+    },
+    {
+      "id": 2,
+      "titulo": "Participar de uma AllStars na Ranked (Season sem Party)",
+      "descricao": "Conseguir elo suficiente para ficar entre os 8 jogadores participantes de uma AllStars no bedwars Ranked em uma season que dependa apenas dele.",
+      "recompensa": "R$ 10,00 + 25 Pontos Permanentes + Chave para o <@&1312827605384429690>"
     }
   ],
   "376896777124577291": [],
@@ -67,6 +79,12 @@
       "titulo": "Pegar Divisão 1",
       "descricao": "Conseguir os vouchs e pegar divisão 1",
       "recompensa": "35 Pontos Permanentes + Chave para o <@&1312827605384429690>"
+    },
+    {
+      "id": 2,
+      "titulo": "Conseguir 1000 de Winstreak no The Bridge",
+      "descricao": "Destacar a Dinastya entrando para o top winstreak e obtendo uma das maiores winstreaks de toda a história do The Bridge.",
+      "recompensa": "15 Pontos Permanentes"
     }
   ],
   "829367896530092123": [
@@ -75,6 +93,42 @@
       "titulo": "Pegar General na Sopa",
       "descricao": "Conseguir o rank General na 1v1, se consolidando como um dos top tiers do modo.",
       "recompensa": "20 Pontos Permanentes + Chave para o <@&1312827605384429690>"
+    }
+  ],
+  "820464537244270622": [
+    {
+      "id": 1,
+      "titulo": "Conseguir ficar no top 1 vitórias na próxima semana.",
+      "descricao": "Destacar a Dinastya entre a comunidade que grinda The Bridge ficando no Top 1 vitórias da semana, na conta que desejar.",
+      "recompensa": "10 Pontos Permanentes"
+    },
+    {
+      "id": 2,
+      "titulo": "Se tornar o novo Top 1 do Mush",
+      "descricao": "Se consagrar e superar a AnyRadiance como jogador com a maior quantidade de vitórias da história do MushMC no The Bridge",
+      "recompensa": "15 Pontos Permanentes + Chave para o <@&1312827605384429690>"
+    }
+  ],
+  "723869899985911818": [
+    {
+      "id": 1,
+      "titulo": "Ganhar 2 Partidas Seguidas do Lipe.",
+      "descricao": "Se provar como parte da elite br de The Bridge, ganhando 2 partidas do melhor jogador do Brasil.",
+      "recompensa": "30 Pontos Permanentes + Chave para o <@&1312827605384429690>"
+    },
+    {
+      "id": 2,
+      "titulo": "Ganhar a MushLeague de The Bridge",
+      "descricao": "Vencer o campeonato com a maior recompensa brasileira de The Bridge, destacando o clan.",
+      "recompensa": "45 Pontos Permanentes + 1/2 Chave do <@&1312827534400028692>"
+    }
+  ],
+  "1032668860282843207": [
+    {
+      "id": 1,
+      "titulo": "Conseguir Prime no Scrims.",
+      "descricao": "Conseguir o rank Prime no Scrims, se destacando como um possível High Div 2 e um dos poucos brasileiros a conseguir esse feito.",
+      "recompensa": "15 Pontos Permanentes + Chave para o <@&1312827605384429690>"
     }
   ]
 }
